@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Birthday 💖</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        dayPrimary: '#ffc0cb',
+                        nightPrimary: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            transition: background 0.5s ease, color 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: absolute;
+            bottom: -10px;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: floatUp 10s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Custom Neon Glows */
+        .glow-pink {
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8), 0 0 20px rgba(255, 105, 180, 0.6);
+        }
+        .dark .glow-blue {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.8), 0 0 20px rgba(56, 189, 248, 0.6);
+        }
+        
+        .box-glow-pink {
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.4);
+            border: 1px solid rgba(255, 105, 180, 0.8);
+        }
+        .dark .box-glow-blue {
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.8);
+        }
+
+        /* Gift Animation */
+        .gift-reveal {
+            transition: all 0.5s ease;
+            transform: scale(0);
+            opacity: 0;
+            display: none;
+        }
+        .gift-reveal.active {
+            display: block;
+            transform: scale(1);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-100 to-pink-200 text-gray-800 dark:from-slate-900 dark:to-slate-800 dark:text-white min-h-screen relative font-sans">
+
+    <audio id="bgMusic" src="NIKI - lowkey (Lyrics).mp3" loop></audio>
+
+    <div id="particles-container" class="fixed inset-0 z-0 overflow-hidden pointer-events-none"></div>
+
+    <div class="fixed top-4 right-4 z-50 flex gap-3">
+        <button id="musicBtn" class="p-3 bg-white/50 dark:bg-slate-700/50 backdrop-blur-md rounded-full shadow-lg hover:scale-110 transition">
+            🎵
+        </button>
+        <button id="themeToggle" class="p-3 bg-white/50 dark:bg-slate-700/50 backdrop-blur-md rounded-full shadow-lg hover:scale-110 transition">
+            🌙
+        </button>
+    </div>
+
+    <main class="relative z-10 flex flex-col items-center justify-center min-h-screen p-6 max-w-3xl mx-auto space-y-12 text-center pb-20">
+        
+        <h1 class="text-5xl md:text-7xl font-bold mt-10 glow-pink dark:glow-blue transition-all duration-500">
+            Happy Birthday Sayanggkuu
+        </h1>
+
+        <div class="bg-white/60 dark:bg-slate-800/60 backdrop-blur-md p-8 rounded-3xl shadow-xl w-full transition-all duration-500 hover:-translate-y-2">
+            <p class="text-lg md:text-xl leading-relaxed">
+                "Selamat ulang tahun untuk orang yang paling spesial akuuh. semoga di ulang tahun kamu ini, kamuu selalu diberi kesabaran, Rezeki, dan berkat Tuhan yang lain. Terima kasih sudah menjadi bagian terbaik dalam hari-hariku. Jangan Tinggalin aku yaa"
+            </p>
+        </div>
+
+        <div class="group relative w-10 h-70 md:w-50 md:h-50 mx-auto rounded-3xl overflow-hidden shadow-2xl transition-transform duration-500 hover:scale-105 box-glow-pink dark:box-glow-blue">
+            <img src="foto ultah.jpeg" alt="Foto Pasangan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div class="p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm box-glow-pink dark:box-glow-blue hover:scale-105 transition-all">
+                <h3 class="font-bold text-xl mb-2">Pesan 1</h3>
+                <p class="text-sm">Jangan tinggalin akuu.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm box-glow-pink dark:box-glow-blue hover:scale-105 transition-all">
+                <h3 class="font-bold text-xl mb-2">Harapan</h3>
+                <p class="text-sm">Semoga semua mimpi kamu perlahan menjadi kenyataan tahun ini.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm box-glow-pink dark:box-glow-blue hover:scale-105 transition-all">
+                <h3 class="font-bold text-xl mb-2">Pesan 2</h3>
+                <p class="text-sm">Jangan pernah marah/benci orang tua walau kamu sekesel apapun itu</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm box-glow-pink dark:box-glow-blue hover:scale-105 transition-all">
+                <h3 class="font-bold text-xl mb-2">Pesan 3</h3>
+                <p class="text-sm">Harus Rajin Ibadah, jangan nggaa ibadah</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm box-glow-pink dark:box-glow-blue hover:scale-105 transition-all">
+                <h3 class="font-bold text-xl mb-2">Pesan Pesan Paling penting</h3>
+                <p class="text-sm">Tahun ini kita harus buat kenangan yang banyak, sebelum LDR mwhehehe</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm box-glow-pink dark:box-glow-blue hover:scale-105 transition-all">
+                <h3 class="font-bold text-xl mb-2">Pesan 4</h3>
+                <p class="text-sm">Kaloo adaaa apaa" jangann lupaa ceritaa kee akuuhh</p>
+            </div>
+        </div>
+
+        <div class="bg-white/60 dark:bg-slate-800/60 backdrop-blur-md p-6 rounded-3xl shadow-lg w-full max-w-xl transition-all box-glow-pink dark:box-glow-blue">
+            <p class="text-md italic">
+                "Tidak peduli apakah ini siang yang cerah atau malam yang gelap, perasaanku akan selalu tetap sama."
+            </p>
+        </div>
+
+        <div class="flex flex-col items-center space-y-6 pt-8 w-full">
+            <button id="giftBtn" class="px-8 py-4 bg-pink-500 hover:bg-pink-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white rounded-full font-bold shadow-[0_0_15px_rgba(236,72,153,0.6)] dark:shadow-[0_0_15px_rgba(37,99,235,0.6)] transition-all hover:scale-110">
+                🎁 Buka Kado Spesial
+            </button>
+            
+            <div id="giftContent" class="gift-reveal bg-white/80 dark:bg-slate-800/80 backdrop-blur-md p-6 rounded-2xl w-full max-w-sm text-center shadow-xl border-2 border-pink-400 dark:border-blue-400">
+                <h2 class="text-2xl font-bold mb-2">Surprise! 🎉</h2>
+                <p class="text-sm mb-4">TEBAKKKK APAAA</p>
+                </div>
+        </div>
+
+    </main>
+
+    <footer class="relative z-10 w-full text-center pb-8 glow-pink dark:glow-blue">
+        <p class="text-sm font-semibold opacity-90">
+            Aku mencintaimu hari ini, besok, dan seterusnya 💖
+        </p>
+    </footer>
+
+    <script>
+        // 1. Theme Toggle Logic
+        const themeBtn = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        themeBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if(html.classList.contains('dark')) {
+                themeBtn.textContent = '☀️'; // Berubah jadi ikon matahari saat mode malam
+            } else {
+                themeBtn.textContent = '🌙';
+            }
+        });
+
+        // 2. Music Player Logic
+        const musicBtn = document.getElementById('musicBtn');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.textContent = '🎵';
+                musicBtn.classList.remove('animate-pulse');
+            } else {
+                bgMusic.play().catch(e => console.log("Audio play failed:", e));
+                musicBtn.textContent = '⏸️';
+                musicBtn.classList.add('animate-pulse');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // 3. Gift Reveal Interaction
+        const giftBtn = document.getElementById('giftBtn');
+        const giftContent = document.getElementById('giftContent');
+
+        giftBtn.addEventListener('click', () => {
+            giftContent.classList.toggle('active');
+            if(giftContent.classList.contains('active')) {
+                giftBtn.textContent = 'Tutup Kado 🎀';
+            } else {
+                giftBtn.textContent = '🎁 Buka Kado Spesial';
+            }
+        });
+
+        // 4. Floating Particles Generator
+        const particlesContainer = document.getElementById('particles-container');
+        const createParticle = () => {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random horizontal position
+            particle.style.left = Math.random() * 100 + 'vw';
+            
+            // Random animation duration between 8s and 15s
+            particle.style.animationDuration = Math.random() * 7 + 8 + 's';
+            
+            // Random opacity and size
+            particle.style.opacity = Math.random() * 0.5 + 0.3;
+            const size = Math.random() * 10 + 5 + 'px';
+            particle.style.width = size;
+            particle.style.height = size;
+
+            particlesContainer.appendChild(particle);
+
+            // Remove particle after animation ends
+            setTimeout(() => {
+                particle.remove();
+            }, 15000);
+        };
+
+        // Create initial particles
+        for(let i = 0; i < 30; i++) {
+            setTimeout(createParticle, Math.random() * 5000);
+        }
+
+        // Keep generating particles
+        setInterval(createParticle, 500);
+
+    </script>
+</body>
+</html>
